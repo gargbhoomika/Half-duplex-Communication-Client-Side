@@ -13,12 +13,16 @@ public class mainclass {
 		String x;
 		try
 		{
-			s = new Socket("172.20.10.3",3000);
+			System.out.println("Enter the ip address of the server system: ");
+			String ip = sc.next();
+			System.out.println("Enter the port number same as of the server system: ");
+			int port = sc.nextInt();
+			s = new Socket(ip,port);
 			DataOutputStream dos = new DataOutputStream(s.getOutputStream());
 			DataInputStream dis = new DataInputStream(s.getInputStream());
 			while(true)
 			{
-				System.out.println("Enter Message: ");
+				System.out.println("You: ");
 				x = sc.nextLine();
 				dos.writeUTF(x);
 				String read = dis.readUTF();
